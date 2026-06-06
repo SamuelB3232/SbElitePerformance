@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SB Elite Performance | Basketball Training</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --orange: #F56A00;
+      --orange-glow: #FF8C2A;
+      --black: #080808;
+      --dark: #111111;
+      --mid: #1C1C1C;
+      --light: #E8E8E8;
+      --white: #FFFFFF;
+      --court-line: rgba(245,106,0,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--light);
+      font-family: 'Barlow', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: linear-gradient(180deg, rgba(8,8,8,0.95) 0%, transparent 100%);
+      backdrop-filter: blur(6px);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--orange); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--light);
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+
+    .nav-cta {
+      background: var(--orange);
+      color: var(--black) !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 2px;
+      font-weight: 700 !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+    .nav-cta:hover { background: var(--orange-glow) !important; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Court line grid */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(var(--court-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--court-line) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+
+    /* Orange arc */
+    #hero .arc {
+      position: absolute;
+      right: -200px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      border: 80px solid var(--orange);
+      opacity: 0.06;
+    }
+    #hero .arc2 {
+      position: absolute;
+      right: -50px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 2px solid rgba(245,106,0,0.3);
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 6vw;
+      max-width: 900px;
+      animation: heroIn 1s ease both;
+    }
+
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.2rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 36px; height: 2px;
+      background: var(--orange);
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 10vw, 9rem);
+      line-height: 0.92;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--orange);
+      -webkit-text-stroke: 0px;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: rgba(232,232,232,0.7);
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--black);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 2.2rem;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--orange-glow); transform: translateY(-2px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 2.2rem;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 3rem;
+      right: 6vw;
+      display: flex;
+      gap: 3rem;
+      z-index: 2;
+      animation: heroIn 1s 0.3s ease both;
+    }
+
+    .stat-item { text-align: right; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(232,232,232,0.5);
+    }
+
+    /* ── SECTION COMMON ── */
+    section { position: relative; z-index: 1; }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 6vw;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.9rem;
+    }
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--orange);
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--dark); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(232,232,232,0.75);
+      margin-bottom: 1.2rem;
+    }
+    .about-text strong { color: var(--orange); font-weight: 700; }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card {
+      background: var(--mid);
+      border: 1px solid rgba(245,106,0,0.15);
+      border-radius: 4px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--orange), transparent);
+    }
+
+    .big-letter {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10rem;
+      color: rgba(245,106,0,0.06);
+      line-height: 1;
+      position: absolute;
+      top: -1rem;
+      right: 1rem;
+      pointer-events: none;
+    }
+
+    .about-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .about-card p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(232,232,232,0.65);
+    }
+
+    .years-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--orange);
+      color: var(--black);
+      padding: 1.2rem 1.6rem;
+      border-radius: 3px;
+      margin-top: 1.5rem;
+    }
+    .years-badge .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      line-height: 1;
+    }
+    .years-badge .lbl {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--black); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      margin-top: 3rem;
+      background: rgba(245,106,0,0.1);
+      border: 1.5px solid rgba(245,106,0,0.1);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--dark);
+      padding: 2.5rem 2rem;
+      transition: background 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover { background: var(--mid); }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: rgba(232,232,232,0.6);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-tag {
+      display: inline-block;
+      background: rgba(245,106,0,0.12);
+      color: var(--orange);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+      border: 1px solid rgba(245,106,0,0.25);
+    }
+
+    /* ── SKILLS/TRAINING ── */
+    #training { background: var(--dark); }
+
+    .training-intro {
+      font-size: 1.1rem;
+      color: rgba(232,232,232,0.65);
+      max-width: 580px;
+      line-height: 1.7;
+      margin-top: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .skill-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+    .skill-label span { color: var(--orange); }
+
+    .skill-bar {
+      height: 4px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--orange), var(--orange-glow));
+      border-radius: 2px;
+      transform-origin: left;
+      animation: fillBar 1.2s ease both;
+    }
+
+    @keyframes fillBar {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    .training-perks {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 3.5rem;
+    }
+
+    .perk {
+      background: var(--mid);
+      border: 1px solid rgba(245,106,0,0.1);
+      padding: 1.5rem 1.2rem;
+      border-radius: 3px;
+      text-align: center;
+    }
+
+    .perk .icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
+    .perk h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .perk p { font-size: 0.8rem; color: rgba(232,232,232,0.5); line-height: 1.5; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--black); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .contact-info h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      font-size: 1rem;
+      color: rgba(232,232,232,0.65);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: rgba(232,232,232,0.7);
+    }
+    .contact-detail .icon {
+      width: 38px; height: 38px;
+      background: rgba(245,106,0,0.1);
+      border: 1px solid rgba(245,106,0,0.2);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* FORM */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(232,232,232,0.5);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--mid);
+      border: 1.5px solid rgba(255,255,255,0.08);
+      border-radius: 3px;
+      padding: 0.85rem 1rem;
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-group select option { background: var(--mid); }
+
+    .submit-btn {
+      background: var(--orange);
+      color: var(--black);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1.1rem 2rem;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 0.5rem;
+    }
+    .submit-btn:hover { background: var(--orange-glow); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(245,106,0,0.1);
+      padding: 2.5rem 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--orange); }
+
+    footer p {
+      font-size: 0.8rem;
+      color: rgba(232,232,232,0.35);
+    }
+
+    /* ── DIVIDER LINE ── */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(245,106,0,0.3), transparent);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero-content { padding: 0 5vw; }
+      .hero-stats { display: none; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .skills-list { grid-template-columns: 1fr; }
+      .training-perks { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .section-inner { padding: 4rem 5vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo"><span>SB</span> Elite Performance</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a href="#contact" class="nav-cta">Book a Session</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="arc"></div>
+    <div class="arc2"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Basketball Training & Coaching</div>
+      <h1>ELEVATE<br>YOUR <em>GAME</em></h1>
+      <p class="hero-sub">
+        Elite 1-on-1 coaching and group training sessions designed to sharpen your skills,
+        build your confidence, and take your game to the next level.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Book a Session</a>
+        <a href="#services" class="btn-ghost">View Programs</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">13+</div>
+        <div class="stat-label">Years Playing</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1-on-1</div>
+        <div class="stat-label">Private Coaching</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Dedicated</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-tag">About Samuel</div>
+      <h2>THE TRAINER<br>BEHIND THE BRAND</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            My name is <strong>Samuel</strong>, and basketball isn't just a sport to me — it's a way of life.
+            I've been playing for over <strong>13 years</strong>, dedicating my entire high school career
+            to perfecting my craft on the court every single day.
+          </p>
+          <p>
+            I currently compete as a <strong>two-year starter on the Ventura High School varsity team</strong> —
+            proof that the work ethic behind SB Elite Performance is the real deal, not just something I teach.
+          </p>
+          <p>
+            What started as personal passion turned into purpose when I began training my
+            <strong>teammates and friends</strong> — and seeing real results. That drive is what led
+            to the founding of <strong>SB Elite Performance</strong>.
+          </p>
+          <p>
+            I understand the grind because I live it. My sessions are built on the same discipline,
+            focus, and commitment that shaped me as a player.
+          </p>
+        </div>
+        <div class="about-visual">
+          <div class="about-card">
+            <div class="big-letter">SB</div>
+            <h3>Samuel's Approach</h3>
+            <p>
+              Every athlete is different. That's why every session is tailored to where you
+              are right now — and where you want to be. No templates. No shortcuts. Just real work.
+            </p>
+            <div class="years-badge">
+              <div class="num">13</div>
+              <div class="lbl">Years on the Court</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner">
+      <div class="section-tag">Programs</div>
+      <h2>TRAINING<br>SESSIONS</h2>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">🏀</div>
+          <h3>1-on-1 Private Coaching</h3>
+          <p>
+            Dedicated one-on-one sessions fully focused on your development. We identify weaknesses,
+            build strengths, and push you beyond your current ceiling.
+          </p>
+          <span class="service-tag">Most Popular</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <h3>Skills Clinics</h3>
+          <p>
+            Intensive sessions targeting specific skills — ball-handling, shooting mechanics,
+            footwork, and court IQ. Come in weak, leave sharper.
+          </p>
+          <span class="service-tag">All Levels</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">👥</div>
+          <h3>Small Group Training</h3>
+          <p>
+            Train with a small crew. Build chemistry, compete, and push each other in
+            a structured environment led by Samuel directly.
+          </p>
+          <span class="service-tag">2–5 Players</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🎯</div>
+          <h3>Shooting Programs</h3>
+          <p>
+            A focused shooting program designed to increase range, consistency, and confidence
+            from anywhere on the court. Form, footwork, and reps.
+          </p>
+          <span class="service-tag">Specialized</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔥</div>
+          <h3>Athlete Conditioning</h3>
+          <p>
+            Basketball-specific conditioning to build the endurance, explosiveness, and athleticism
+            you need to play at a higher level for longer.
+          </p>
+          <span class="service-tag">Performance</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- TRAINING FOCUS -->
+  <section id="training">
+    <div class="section-inner">
+      <div class="section-tag">What We Develop</div>
+      <h2>COMPLETE PLAYER<br>DEVELOPMENT</h2>
+      <p class="training-intro">
+        SB Elite Performance focuses on building complete, well-rounded athletes —
+        from fundamental mechanics to advanced game situations.
+      </p>
+
+      <div class="skills-list">
+        <div class="skill-row">
+          <div class="skill-label">Ball Handling <span>Elite</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Shooting Form <span>Elite</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Footwork <span>Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Finishing at the Rim <span>Elite</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Defensive Fundamentals <span>Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Game IQ & Decision Making <span>Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+      </div>
+
+      <div class="training-perks">
+        <div class="perk">
+          <div class="icon">📍</div>
+          <h4>Location Flexible</h4>
+          <p>Local courts or your preferred gym</p>
+        </div>
+        <div class="perk">
+          <div class="icon">⏱️</div>
+          <h4>60–90 Min Sessions</h4>
+          <p>Focused, high-intensity workouts</p>
+        </div>
+        <div class="perk">
+          <div class="icon">📋</div>
+          <h4>Custom Plans</h4>
+          <p>Built around your specific goals</p>
+        </div>
+        <div class="perk">
+          <div class="icon">📈</div>
+          <h4>Progress Tracking</h4>
+          <p>We measure so you can see growth</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-tag">Get In Touch</div>
+      <h2>BOOK YOUR<br>SESSION</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Ready to Level Up?</h3>
+          <p>
+            Whether you're just starting out or already competing at a high level,
+            there's always another gear. Reach out and let's build your game together.
+          </p>
+          <div class="contact-detail">
+            <div class="icon">📧</div>
+            <span>sbeliteperformance@gmail.com</span>
+          </div>
+          <div class="contact-detail">
+            <div class="icon">📍</div>
+            <span>Ventura County, CA</span>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Your first name" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Your last name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Program Interest</label>
+            <select>
+              <option value="">Select a program...</option>
+              <option>1-on-1 Private Coaching</option>
+              <option>Skills Clinic</option>
+              <option>Small Group Training</option>
+              <option>Shooting Program</option>
+              <option>Athlete Conditioning</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell Samuel About Your Goals</label>
+            <textarea placeholder="What do you want to improve? Current level? Any upcoming tryouts or season?"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo"><span>SB</span> Elite Performance</div>
+    <p>© 2025 SB Elite Performance. All rights reserved.</p>
+    <p>Designed for athletes who refuse to settle.</p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.submit-btn');
+      btn.textContent = '✓ Message Sent!';
+      btn.style.background = '#22c55e';
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    }
+
+    // Animate skill bars when in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.skill-fill').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
