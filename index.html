@@ -632,6 +632,168 @@
     }
     .submit-btn:hover { background: var(--orange-glow); transform: translateY(-2px); }
 
+    /* ── PRICING ── */
+    #pricing { background: var(--black); }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .price-card {
+      background: var(--dark);
+      border: 1.5px solid rgba(245,106,0,0.12);
+      border-radius: 4px;
+      padding: 2.2rem 1.8rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(245,106,0,0.4);
+    }
+
+    .price-card.featured {
+      border-color: var(--orange);
+      background: var(--mid);
+    }
+
+    .price-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      background: var(--orange);
+      color: var(--black);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-align: center;
+      padding: 0.35rem;
+    }
+
+    .price-card.featured .price-header { margin-top: 1.5rem; }
+
+    .price-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+
+    .price-header h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .price-amount {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      margin: 1rem 0;
+    }
+
+    .price-dollar {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .price-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .price-per {
+      font-size: 0.8rem;
+      color: rgba(232,232,232,0.4);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .price-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+      margin: 1.2rem 0;
+    }
+
+    .price-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .price-features li {
+      font-size: 0.9rem;
+      color: rgba(232,232,232,0.65);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .price-features li::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .price-cta {
+      display: block;
+      text-align: center;
+      margin-top: 1.8rem;
+      padding: 0.85rem;
+      background: transparent;
+      border: 1.5px solid rgba(245,106,0,0.35);
+      border-radius: 2px;
+      color: var(--orange);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .price-card.featured .price-cta {
+      background: var(--orange);
+      color: var(--black);
+      border-color: var(--orange);
+    }
+
+    .price-cta:hover { background: var(--orange); color: var(--black); }
+    .price-card.featured .price-cta:hover { background: var(--orange-glow); }
+
+    .pricing-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: rgba(232,232,232,0.35);
+    }
+
+    /* ── FOOTER INSTAGRAM ── */
+    .footer-ig {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--orange);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .footer-ig:hover { color: var(--orange-glow); }
+    .footer-ig svg { width: 18px; height: 18px; fill: currentColor; }
+
     /* ── FOOTER ── */
     footer {
       background: var(--dark);
@@ -670,6 +832,7 @@
       .nav-links { display: none; }
       .hero-content { padding: 0 5vw; }
       .hero-stats { display: none; }
+      .pricing-grid { grid-template-columns: 1fr; }
       .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .services-grid { grid-template-columns: 1fr; }
       .skills-list { grid-template-columns: 1fr; }
@@ -687,6 +850,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
       <li><a href="#training">Training</a></li>
       <li><a href="#contact" class="nav-cta">Book a Session</a></li>
     </ul>
@@ -710,7 +874,7 @@
     </div>
     <div class="hero-stats">
       <div class="stat-item">
-        <div class="stat-num">13+</div>
+        <div class="stat-num">10+</div>
         <div class="stat-label">Years Playing</div>
       </div>
       <div class="stat-item">
@@ -734,18 +898,20 @@
       <div class="about-grid">
         <div class="about-text">
           <p>
-            My name is <strong>Samuel</strong>, and basketball isn't just a sport to me — it's a way of life.
-            I've been playing for over <strong>13 years</strong>, dedicating my entire high school career
-            to perfecting my craft on the court every single day.
+            My name is <strong>Samuel</strong>, and basketball has been my life for over <strong>10 years</strong>.
+            I'm currently a high school student entering my <strong>second year as a varsity starter
+            at Ventura High School</strong> actively competing, training daily, and living the game
+            at the same time I'm teaching it.
           </p>
           <p>
-            I currently compete as a <strong>two-year starter on the Ventura High School varsity team</strong> —
-            proof that the work ethic behind SB Elite Performance is the real deal, not just something I teach.
+            Being a student athlete means I know exactly what it takes to balance school, workouts, and
+            performing when it counts. I'm not a trainer who used to play — <strong>I'm in it right now</strong>,
+            and I bring that same intensity and hunger to every session I run.
           </p>
           <p>
-            What started as personal passion turned into purpose when I began training my
-            <strong>teammates and friends</strong> — and seeing real results. That drive is what led
-            to the founding of <strong>SB Elite Performance</strong>.
+            What started as training my <strong>teammates and friends</strong> turned into something bigger.
+            Seeing real improvement in the people I worked with is what led to <strong>SB Elite Performance</strong> —
+            built by a player who's still in the grind.
           </p>
           <p>
             I understand the grind because I live it. My sessions are built on the same discipline,
@@ -758,10 +924,10 @@
             <h3>Samuel's Approach</h3>
             <p>
               Every athlete is different. That's why every session is tailored to where you
-              are right now — and where you want to be. No templates. No shortcuts. Just real work.
+              are right now and where you want to be. No templates. No shortcuts. Just real work.
             </p>
             <div class="years-badge">
-              <div class="num">13</div>
+              <div class="num">10</div>
               <div class="lbl">Years on the Court</div>
             </div>
           </div>
@@ -803,8 +969,9 @@
           <div class="service-icon">👥</div>
           <h3>Small Group Training</h3>
           <p>
-            Train with a small crew. Build chemistry, compete, and push each other in
-            a structured environment led by Samuel directly.
+            Train alongside friends, teammates — or even family. Got a sibling who wants to ball too?
+            Bring them in. Training together builds competition, accountability, and chemistry that makes
+            everyone in the group better.
           </p>
           <span class="service-tag">2–5 Players</span>
         </div>
@@ -819,15 +986,6 @@
           <span class="service-tag">Specialized</span>
         </div>
 
-        <div class="service-card">
-          <div class="service-icon">🔥</div>
-          <h3>Athlete Conditioning</h3>
-          <p>
-            Basketball-specific conditioning to build the endurance, explosiveness, and athleticism
-            you need to play at a higher level for longer.
-          </p>
-          <span class="service-tag">Performance</span>
-        </div>
 
       </div>
     </div>
@@ -899,6 +1057,80 @@
 
   <div class="divider"></div>
 
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-inner">
+      <div class="section-tag">Pricing</div>
+      <h2>SIMPLE.<br>STRAIGHT UP.</h2>
+      <div class="pricing-grid">
+
+        <div class="price-card">
+          <div class="price-icon">👥</div>
+          <div class="price-header">
+            <h3>Group Session</h3>
+          </div>
+          <div class="price-amount">
+            <span class="price-dollar">$</span>
+            <span class="price-num">15</span>
+            <span class="price-per">/ person</span>
+          </div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li>2–5 players per session</li>
+            <li>Bring friends, teammates, or siblings</li>
+            <li>Competitive drills & team reps</li>
+            <li>60–90 minute session</li>
+          </ul>
+          <a href="#contact" class="price-cta">Book Group →</a>
+        </div>
+
+        <div class="price-card featured">
+          <div class="price-icon">🏀</div>
+          <div class="price-header">
+            <h3>1-on-1 Coaching</h3>
+          </div>
+          <div class="price-amount">
+            <span class="price-dollar">$</span>
+            <span class="price-num">28</span>
+            <span class="price-per">/ session</span>
+          </div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li>Fully personalized to your game</li>
+            <li>Direct feedback every rep</li>
+            <li>Custom development plan</li>
+            <li>60–90 minute session</li>
+          </ul>
+          <a href="#contact" class="price-cta">Book 1-on-1 →</a>
+        </div>
+
+        <div class="price-card">
+          <div class="price-icon">🎯</div>
+          <div class="price-header">
+            <h3>Skills & Shooting</h3>
+          </div>
+          <div class="price-amount">
+            <span class="price-dollar">$</span>
+            <span class="price-num">28</span>
+            <span class="price-per">/ session</span>
+          </div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li>Ball handling & footwork</li>
+            <li>Shooting mechanics & form</li>
+            <li>Spot shooting & game speed reps</li>
+            <li>60–90 minute session</li>
+          </ul>
+          <a href="#contact" class="price-cta">Book Session →</a>
+        </div>
+
+      </div>
+      <p class="pricing-note">All sessions held at LA Fitness, local parks, or at your home. Location flexible.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-inner">
@@ -913,11 +1145,19 @@
           </p>
           <div class="contact-detail">
             <div class="icon">📧</div>
-            <span>sbeliteperformance@gmail.com</span>
+            <span>samuelbuenning@yahoo.com</span>
           </div>
           <div class="contact-detail">
             <div class="icon">📍</div>
-            <span>Ventura County, CA</span>
+            <span>LA Fitness · Your Home · Local Park — Ventura County, CA</span>
+          </div>
+          <div class="contact-detail">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;fill:var(--orange)">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+            <a href="https://www.instagram.com/sbeliteperformance" target="_blank" style="color:var(--orange);text-decoration:none;font-weight:600;transition:color 0.2s;" onmouseover="this.style.color='var(--orange-glow)'" onmouseout="this.style.color='var(--orange)'">@sbeliteperformance</a>
           </div>
         </div>
 
@@ -944,7 +1184,7 @@
               <option>Skills Clinic</option>
               <option>Small Group Training</option>
               <option>Shooting Program</option>
-              <option>Athlete Conditioning</option>
+              <option>Other</option>
             </select>
           </div>
           <div class="form-group">
@@ -960,6 +1200,12 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo"><span>SB</span> Elite Performance</div>
+    <a href="https://www.instagram.com/sbeliteperformance" target="_blank" class="footer-ig">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      </svg>
+      @sbeliteperformance
+    </a>
     <p>© 2025 SB Elite Performance. All rights reserved.</p>
     <p>Designed for athletes who refuse to settle.</p>
   </footer>
