@@ -33,7 +33,7 @@
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='1'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='60'/%3E%3C/filter%3E%3Crect width='200' height='200' fill='%23000000' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 0;
       opacity: 0.5;
@@ -986,6 +986,7 @@
           <span class="service-tag">Specialized</span>
         </div>
 
+
       </div>
     </div>
   </section>
@@ -998,46 +999,57 @@
       <div class="section-tag">What We Develop</div>
       <h2>COMPLETE PLAYER<br>DEVELOPMENT</h2>
       <p class="training-intro">
-        Our training programs are built around the fundamentals that separate good players from elite ones.
+        SB Elite Performance focuses on building complete, well-rounded athletes —
+        from fundamental mechanics to advanced game situations.
       </p>
+
       <div class="skills-list">
         <div class="skill-row">
-          <div class="skill-label">Ball Handling <span>95%</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="width: 95%"></div></div>
+          <div class="skill-label">Ball Handling <span>Elite</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label">Shooting Accuracy <span>92%</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="width: 92%"></div></div>
+          <div class="skill-label">Shooting Form <span>Elite</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label">Court Awareness <span>88%</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="width: 88%"></div></div>
+          <div class="skill-label">Footwork <span>Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label">Defensive Fundamentals <span>90%</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+          <div class="skill-label">Finishing at the Rim <span>Elite</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Defensive Fundamentals <span>Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Game IQ & Decision Making <span>Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
         </div>
       </div>
+
       <div class="training-perks">
         <div class="perk">
-          <div class="icon">💪</div>
-          <h4>Strength Building</h4>
-          <p>Develop explosive power and endurance for game-ready performance.</p>
+          <div class="icon">📍</div>
+          <h4>Location Flexible</h4>
+          <p>Local courts or your preferred gym</p>
         </div>
         <div class="perk">
-          <div class="icon">🎯</div>
-          <h4>Precision Training</h4>
-          <p>Master footwork and mechanics for consistency under pressure.</p>
+          <div class="icon">⏱️</div>
+          <h4>60–90 Min Sessions</h4>
+          <p>Focused, high-intensity workouts</p>
         </div>
         <div class="perk">
-          <div class="icon">🧠</div>
-          <h4>Game IQ</h4>
-          <p>Learn positioning, spacing, and decision-making strategies.</p>
+          <div class="icon">📋</div>
+          <h4>Custom Plans</h4>
+          <p>Built around your specific goals</p>
         </div>
         <div class="perk">
-          <div class="icon">⚡</div>
-          <h4>Speed & Agility</h4>
-          <p>Improve lateral movement and acceleration for competitive edge.</p>
+          <div class="icon">📈</div>
+          <h4>Progress Tracking</h4>
+          <p>We measure so you can see growth</p>
         </div>
       </div>
     </div>
@@ -1048,74 +1060,72 @@
   <!-- PRICING -->
   <section id="pricing">
     <div class="section-inner">
-      <div class="section-tag">Investment Plans</div>
-      <h2>TRANSPARENT<br>PRICING</h2>
+      <div class="section-tag">Pricing</div>
+      <h2>SIMPLE.<br>STRAIGHT UP.</h2>
       <div class="pricing-grid">
 
         <div class="price-card">
-          <div class="price-icon">🏀</div>
+          <div class="price-icon">👥</div>
           <div class="price-header">
-            <h3>Single Session</h3>
+            <h3>Group Session</h3>
           </div>
           <div class="price-amount">
             <span class="price-dollar">$</span>
-            <span class="price-num">75</span>
+            <span class="price-num">15</span>
+            <span class="price-per">/ person</span>
+          </div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li>2–5 players per session</li>
+            <li>Bring friends, teammates, or siblings</li>
+            <li>Competitive drills & team reps</li>
+            <li>60–90 minute session</li>
+          </ul>
+          <a href="#contact" class="price-cta">Book Group →</a>
+        </div>
+
+        <div class="price-card featured">
+          <div class="price-icon">🏀</div>
+          <div class="price-header">
+            <h3>1-on-1 Coaching</h3>
+          </div>
+          <div class="price-amount">
+            <span class="price-dollar">$</span>
+            <span class="price-num">28</span>
             <span class="price-per">/ session</span>
           </div>
           <div class="price-divider"></div>
           <ul class="price-features">
-            <li>60-minute session</li>
-            <li>1-on-1 coaching</li>
-            <li>Customized drills</li>
-            <li>Performance feedback</li>
+            <li>Fully personalized to your game</li>
+            <li>Direct feedback every rep</li>
+            <li>Custom development plan</li>
+            <li>60–90 minute session</li>
           </ul>
-          <a href="#contact" class="price-cta">Book Now</a>
-        </div>
-
-        <div class="price-card featured">
-          <div class="price-icon">⭐</div>
-          <div class="price-header">
-            <h3>5-Session Package</h3>
-          </div>
-          <div class="price-amount">
-            <span class="price-dollar">$</span>
-            <span class="price-num">330</span>
-            <span class="price-per">/ 5 sessions</span>
-          </div>
-          <div class="price-divider"></div>
-          <ul class="price-features">
-            <li>60-minute sessions</li>
-            <li>1-on-1 coaching</li>
-            <li>Progress tracking</li>
-            <li>Save $45/package</li>
-            <li>Flexible scheduling</li>
-          </ul>
-          <a href="#contact" class="price-cta">Get Started</a>
+          <a href="#contact" class="price-cta">Book 1-on-1 →</a>
         </div>
 
         <div class="price-card">
-          <div class="price-icon">🏆</div>
+          <div class="price-icon">🎯</div>
           <div class="price-header">
-            <h3>10-Session Package</h3>
+            <h3>Skills & Shooting</h3>
           </div>
           <div class="price-amount">
             <span class="price-dollar">$</span>
-            <span class="price-num">600</span>
-            <span class="price-per">/ 10 sessions</span>
+            <span class="price-num">28</span>
+            <span class="price-per">/ session</span>
           </div>
           <div class="price-divider"></div>
           <ul class="price-features">
-            <li>60-minute sessions</li>
-            <li>1-on-1 coaching</li>
-            <li>Comprehensive plan</li>
-            <li>Save $150/package</li>
-            <li>Priority booking</li>
+            <li>Ball handling & footwork</li>
+            <li>Shooting mechanics & form</li>
+            <li>Spot shooting & game speed reps</li>
+            <li>60–90 minute session</li>
           </ul>
-          <a href="#contact" class="price-cta">Book Package</a>
+          <a href="#contact" class="price-cta">Book Session →</a>
         </div>
 
       </div>
-      <p class="pricing-note">All packages can be used flexibly. No expiration date. Refunds available if needed.</p>
+      <p class="pricing-note">All sessions held at LA Fitness, local parks, or at your home. Location flexible.</p>
     </div>
   </section>
 
@@ -1125,83 +1135,107 @@
   <section id="contact">
     <div class="section-inner">
       <div class="section-tag">Get In Touch</div>
-      <h2>READY TO ELEVATE?</h2>
+      <h2>BOOK YOUR<br>SESSION</h2>
       <div class="contact-grid">
         <div class="contact-info">
-          <h3>Let's Work Together</h3>
+          <h3>Ready to Level Up?</h3>
           <p>
-            Whether you're looking for single sessions or a comprehensive training package,
-            I'm ready to help you take your game to the next level. Reach out, and let's build your elite performance.
+            Whether you're just starting out or already competing at a high level,
+            there's always another gear. Reach out and let's build your game together.
           </p>
           <div class="contact-detail">
             <div class="icon">📧</div>
-            <span>contact@sbeliteperformance.com</span>
-          </div>
-          <div class="contact-detail">
-            <div class="icon">📱</div>
-            <span>+1 (805) 555-0123</span>
+            <span>samuelbuenning@yahoo.com</span>
           </div>
           <div class="contact-detail">
             <div class="icon">📍</div>
-            <span>Ventura, California</span>
+            <span>LA Fitness · Your Home · Local Park — Ventura County, CA</span>
           </div>
           <div class="contact-detail">
-            <a href="https://instagram.com/sbeliteperformance" class="footer-ig">
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.646.069 4.85 0 3.204-.012 3.584-.07 4.85-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.015-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/></svg>
-              @sbeliteperformance
-            </a>
+            <div class="icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;fill:var(--orange)">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+            <a href="https://www.instagram.com/sb_elite_performace" target="_blank" style="color:var(--orange);text-decoration:none;font-weight:600;transition:color 0.2s;" onmouseover="this.style.color='var(--orange-glow)'" onmouseout="this.style.color='var(--orange)'">@sbeliteperformance</a>
           </div>
         </div>
-        <form class="contact-form">
+
+        <form class="contact-form" onsubmit="handleSubmit(event)">
           <div class="form-row">
             <div class="form-group">
               <label>First Name</label>
-              <input type="text" placeholder="Your first name" required>
+              <input type="text" placeholder="Your first name" required />
             </div>
             <div class="form-group">
               <label>Last Name</label>
-              <input type="text" placeholder="Your last name" required>
+              <input type="text" placeholder="Your last name" />
             </div>
           </div>
           <div class="form-group">
             <label>Email</label>
-            <input type="email" placeholder="your.email@example.com" required>
+            <input type="email" placeholder="your@email.com" required />
           </div>
           <div class="form-group">
-            <label>Phone</label>
-            <input type="tel" placeholder="+1 (805) 555-0000" required>
-          </div>
-          <div class="form-group">
-            <label>Session Type</label>
-            <select required>
-              <option value="">Select a program</option>
-              <option value="single">Single Session</option>
-              <option value="5pack">5-Session Package</option>
-              <option value="10pack">10-Session Package</option>
-              <option value="group">Group Training</option>
+            <label>Program Interest</label>
+            <select>
+              <option value="">Select a program...</option>
+              <option>1-on-1 Private Coaching</option>
+              <option>Skills Clinic</option>
+              <option>Small Group Training</option>
+              <option>Shooting Program</option>
+              <option>Other</option>
             </select>
           </div>
           <div class="form-group">
-            <label>Message</label>
-            <textarea placeholder="Tell me about your goals and experience level..." required></textarea>
+            <label>Tell Samuel About Your Goals</label>
+            <textarea placeholder="What do you want to improve? Current level? Any upcoming tryouts or season?"></textarea>
           </div>
-          <button type="submit" class="submit-btn">Book Your Session</button>
+          <button type="submit" class="submit-btn">Send Message →</button>
         </form>
       </div>
     </div>
   </section>
 
-  <div class="divider"></div>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo"><span>SB</span> Elite Performance</div>
-    <p>&copy; 2025 SB Elite Performance. All rights reserved. Built by a player for players.</p>
-    <a href="https://instagram.com/sbeliteperformance" class="footer-ig">
-      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.646.069 4.85 0 3.204-.012 3.584-.07 4.85-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.015-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/></svg>
-      Follow us
+    <a href="https://www.instagram.com/sbeliteperformance" target="_blank" class="footer-ig">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      </svg>
+    
     </a>
+    <p>© 2025 SB Elite Performance. All rights reserved.</p>
+    <p>Designed for athletes who refuse to settle.</p>
   </footer>
 
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.submit-btn');
+      btn.textContent = '✓ Message Sent!';
+      btn.style.background = '#22c55e';
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    }
+
+    // Animate skill bars when in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.skill-fill').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
